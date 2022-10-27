@@ -28,7 +28,7 @@ services:
     depends_on:
       - database
     volumes:
-      - django-shop-users:/app/
+      - ./django-shop-users:/app/
 
   laravel:
     build: ./eCommerce_back/.
@@ -37,18 +37,21 @@ services:
     depends_on:
       - database
     volumes:
-      - ./eCommerce_back:/var/www/html/
+      - ./eCommerce_back:/app/
 
   database:
     image: mysql
     restart: always
     container_name: mysql
-    env:
-      - MYSQL_DATABASE: app
-      - MYSQL_USER: user
-      - MYSQL_PASSWORD: password
-    volumes:
-      - db:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=app
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password
+    expose:
+      - 3306
+    # volumes:
+    #   - db:/var/lib/mysql
     ports:
       - 9000:3306
 

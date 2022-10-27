@@ -40,20 +40,17 @@ services:
       - ./eCommerce_back:/app/
 
   database:
-    image: mysql
+    image: postgres
     restart: always
-    container_name: mysql
+    container_name: postgres
     environment:
-      - MYSQL_DATABASE=app
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=password
-      - MYSQL_ROOT_PASSWORD=password
-    expose:
-      - 3306
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: app
     # volumes:
-    #   - db:/var/lib/mysql
+    #   - db:/var/lib/postgresql/data
     ports:
-      - 9000:3306
+      - 9000:5432
 
 volumes:
   db:

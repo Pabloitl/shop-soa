@@ -26,7 +26,7 @@ services:
         gunicorn private_equity.wsgi -b 0.0.0.0:80
       "
     depends_on:
-      - postgres
+      - database
     volumes:
       - django-shop-users:/app/
 
@@ -35,11 +35,11 @@ services:
     restart: always
     container_name: laravel
     depends_on:
-      - postgres
+      - database
     volumes:
       - ./eCommerce_back:/app/
 
-  postgres:
+  database:
     image: postgres
     restart: always
     container_name: postgres

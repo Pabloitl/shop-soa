@@ -1,0 +1,6 @@
+[submodule "eCommerce_back"]
+	path = eCommerce_back
+	url = https://github.com/DanielEscobar21/eCommerce_back.git
+[submodule "django-shop-users"]
+	path = django-shop-users
+	url = https://github.com/Pabloitl/django-shop-users.git

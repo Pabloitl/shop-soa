@@ -15,7 +15,7 @@ services:
       - laravel
 
   django:
-    build: .
+    build: ./django-shop-users/.
     restart: always
     container_name: django
     command: >
@@ -31,7 +31,7 @@ services:
       - django-shop-users:/app/
 
   laravel:
-    build: .
+    build: ./eCommerce_back/.
     restart: always
     container_name: laravel
     depends_on:

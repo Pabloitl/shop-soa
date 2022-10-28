@@ -45,6 +45,8 @@ services:
       - database
     volumes:
       - ./eCommerce_back:/app/
+    ports:
+      - 8080:8000
 
   database:
     image: postgres

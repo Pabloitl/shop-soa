@@ -4,3 +4,6 @@
 [submodule "django-shop-users"]
 	path = django-shop-users
 	url = https://github.com/Pabloitl/django-shop-users.git
+[submodule "ducky-shop"]
+	path = ducky-shop
+	url = https://github.com/RebecaValadez/ducky-shop.git

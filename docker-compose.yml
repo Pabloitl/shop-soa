@@ -11,6 +11,20 @@ services:
     volumes:
       - ./config/nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
+      - web
+      - django
+      - laravel
+
+  web:
+    build: ./ducky-shop/.
+    restart: always
+    container_name: web
+    volumes:
+      - ./ducky-shop:/app/
+    command: npm run start
+    ports:
+      - 8080:4200
+    depends_on:
       - django
       - laravel
 
@@ -47,7 +61,7 @@ services:
       - ./eCommerce_back:/app/
 
   database:
-    image: postgres
+    image: postgres:14.6-alpine
     restart: always
     container_name: postgres
     environment:
